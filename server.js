@@ -15,7 +15,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.text());
 app.use(bodyParser.json({type: "application/vnd.api+json"}));
 
-// Star Wars Characters (DATA)
+// Tables either reserved or waitlist
 // =============================================================
 var reservations = [];
 var waitlist = [];
@@ -24,14 +24,17 @@ var waitlist = [];
 // =============================================================
 
 // Basic route that sends the user first to the AJAX Page
+//Main Page Route
 app.get("/", function (req, res) {
     res.sendFile(path.join(__dirname, "home.html"));
 });
 
+//Creating a reservations route
 app.get("/reserve", function (req, res) {
     res.sendFile(path.join(__dirname, "reserve.html"));
 });
 
+//Tables currently positioned
 app.get("/tables", function (req, res) {
     res.sendFile(path.join(__dirname, "tables.html"));
 });
